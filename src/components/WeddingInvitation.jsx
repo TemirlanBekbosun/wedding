@@ -1271,7 +1271,7 @@ export default function WeddingInvitation() {
               <DetailCard>
                 <DetailIcon as={Heart} />
                 <DetailTitle>15:00 - 16:00</DetailTitle>
-                <DetailText mb="0.5rem">Свадебное Катание</DetailText>
+                <DetailText mb="0.5rem">Свадебное катание</DetailText>
                 <DetailSubtext>
                   Начинаем день с радостных моментов и красивых фотографий
                 </DetailSubtext>
