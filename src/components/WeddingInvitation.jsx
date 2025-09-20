@@ -114,6 +114,13 @@ const RSVPForm = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   animation: ${fadeInUp} 0.8s ease-out forwards;
+  overflow: visible;
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: none;
+  }
 `;
 
 const RSVPHeader = styled.div`
@@ -219,6 +226,8 @@ const TextInput = styled.input`
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
   font-size: 1rem;
+  box-sizing: border-box;
+  overflow: visible;
 
   &::placeholder {
     color: rgba(255, 255, 255, 0.7);
@@ -227,6 +236,12 @@ const TextInput = styled.input`
   &:focus {
     outline: none;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  }
+
+  @media (max-width: 600px) {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
   }
 `;
 
@@ -852,7 +867,6 @@ const BouquetImage = styled.div`
 `;
 
 const BASE_URL = "https://7ac5a3df9a7e5d25.mokky.dev";
-
 
 export default function WeddingInvitation() {
   const [currentSection, setCurrentSection] = useState("main");
