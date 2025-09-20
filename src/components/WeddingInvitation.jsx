@@ -1155,7 +1155,7 @@ export default function WeddingInvitation() {
           <DateCard>
             <CalendarIcon />
             <DateTitle>29 сентября 2025</DateTitle>
-            <DateSubtitle>Воскресенье, 18:00</DateSubtitle>
+            <DateSubtitle>Воскресенье</DateSubtitle>
           </DateCard>
         </CountdownContent>
       </CountdownSection>
