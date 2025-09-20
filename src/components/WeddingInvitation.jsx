@@ -1096,7 +1096,7 @@ export default function WeddingInvitation() {
           <MainTitle>
             <TitleSpan>Дастан</TitleSpan>
             <TitleSpan>&</TitleSpan>
-            <TitleSpan>Атыркүль</TitleSpan>
+            <TitleSpan>Атыркүл</TitleSpan>
           </MainTitle>
           <Subtitle>Приглашают на свою свадьбу</Subtitle>
 
@@ -1138,10 +1138,10 @@ export default function WeddingInvitation() {
 
           <CountdownGrid>
             {[
-              { label: "Дни", value: countdown.days },
-              { label: "Часы", value: countdown.hours },
-              { label: "Минуты", value: countdown.minutes },
-              { label: "Секунды", value: countdown.seconds },
+              { label: "Дней", value: countdown.days },
+              { label: "Часов", value: countdown.hours },
+              { label: "Минут", value: countdown.minutes },
+              { label: "Секунд", value: countdown.seconds },
             ].map((item, index) => (
               <CountdownCard key={item.label} delay={index * 0.2}>
                 <CountdownNumber>
@@ -1233,7 +1233,7 @@ export default function WeddingInvitation() {
             <DetailCard>
               <DetailIcon as={MapPin} />
               <DetailTitle>Место проведения</DetailTitle>
-              <DetailText mb="1.5rem">Асман кафе, Бишкек</DetailText>
+              <DetailText mb="1.5rem">Асман кафе, Каракол</DetailText>
               <Button
                 primary
                 onClick={openLocation}
