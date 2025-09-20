@@ -1096,7 +1096,7 @@ export default function WeddingInvitation() {
           <MainTitle>
             <TitleSpan>Дастан</TitleSpan>
             <TitleSpan>&</TitleSpan>
-            <TitleSpan>Атыркүл</TitleSpan>
+            <TitleSpan>Атыргүл</TitleSpan>
           </MainTitle>
           <Subtitle>Приглашают на свою свадьбу</Subtitle>
 
