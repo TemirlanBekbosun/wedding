@@ -12,6 +12,7 @@ import styled, { keyframes, css } from "styled-components";
 import Patr from "../assets/patr2.jpg";
 import Patrthree from "../assets/patr3.jpg";
 import Patrfour from "../assets/patr4.jpg";
+import { toast } from "react-toastify";
 // Анимации
 const float = keyframes`
   0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -937,6 +938,29 @@ export default function WeddingInvitation() {
   };
 
   const handleSubmit = async () => {
+    // Проверка выбран ли вариант присутствия
+    if (!formData.attendance) {
+      toast.error("Пожалуйста, выберите, сможете ли присутствовать.");
+      return;
+    }
+    // Проверка ФИО и роли
+    if (!formData.fullName.trim()) {
+      toast.error("Пожалуйста, введите ваше ФИО.");
+      return;
+    }
+    if (!formData.age.trim()) {
+      toast.error("Пожалуйста, укажите кем вы будете для молодежи.");
+      return;
+    }
+    // Проверка количества гостей, если выбран "yes"
+    if (
+      formData.attendance === "yes" &&
+      (!formData.guestCount || formData.guestCount < 1)
+    ) {
+      toast.error("Пожалуйста, укажите количество гостей.");
+      return;
+    }
+
     const willAttend = formData.attendance === "yes";
     const payload = {
       willAttend,
@@ -951,13 +975,13 @@ export default function WeddingInvitation() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      alert(
+      toast.success(
         willAttend
           ? "Спасибо за ответ! Ждем вас на нашей свадьбе! 💕"
           : "Спасибо за ответ! Будем рады видеть вас в другой раз!"
       );
     } catch (e) {
-      alert("Ошибка отправки. Попробуйте позже.");
+      toast.error("Ошибка отправки. Попробуйте позже.");
     }
     setCurrentSection("main");
   };
