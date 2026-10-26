@@ -1305,6 +1305,7 @@ export default function WeddingInvitation() {
   const [isInvitationOpened, setIsInvitationOpened] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(getTimeLeft);
   const [visibleSections, setVisibleSections] = useState(
     () => new Set(["hero"]),
@@ -1524,6 +1525,10 @@ export default function WeddingInvitation() {
   };
 
   const closeRSVP = () => {
+    if (isSubmitted) {
+      setIsSubmitted(false);
+      setFormData({ attendance: "", guestCount: 1, fullName: "", age: "" });
+    }
     setCurrentSection("main");
     window.setTimeout(
       () => window.scrollTo({ top: 0, behavior: "smooth" }),
@@ -1570,12 +1575,7 @@ export default function WeddingInvitation() {
           ? "Спасибо за ответ! Ждём вас на нашей свадьбе! 💕"
           : "Спасибо, что сообщили. Будем рады увидеться в другой раз!",
       );
-      setCurrentSection("main");
-      setFormData({ attendance: "", guestCount: 1, fullName: "", age: "" });
-      window.setTimeout(
-        () => window.scrollTo({ top: 0, behavior: "smooth" }),
-        20,
-      );
+      setIsSubmitted(true);
     } catch {
       toast.error(
         "Не удалось отправить ответ. Проверьте соединение и настройки API.",
@@ -1593,6 +1593,27 @@ export default function WeddingInvitation() {
     year: "numeric",
     timeZone: "Asia/Bishkek",
   }).format(WEDDING_DATE);
+
+  if (currentSection === "rsvp" && isSubmitted) {
+    return (
+      <>
+        <GlobalStyle />
+        <RSVPPage>
+          <RSVPForm as="section" aria-live="polite">
+            <RSVPBack type="button" onClick={closeRSVP}>
+              <ArrowDown /> К приглашению
+            </RSVPBack>
+            <RSVPHeading>Спасибо за ответ!</RSVPHeading>
+            <RSVPSubheading>
+              {formData.attendance === "yes"
+                ? "Ваш ответ получен. Будем рады разделить этот день вместе."
+                : "Ваш ответ получен. Спасибо, что сообщили нам."}
+            </RSVPSubheading>
+          </RSVPForm>
+        </RSVPPage>
+      </>
+    );
+  }
 
   if (currentSection === "rsvp") {
     return (
