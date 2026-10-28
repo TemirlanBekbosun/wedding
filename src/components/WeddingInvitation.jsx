@@ -841,11 +841,7 @@ const TimelineHeart = styled.div`
   background: var(--paper);
   color: #a9855b;
   box-shadow: 0 5px 18px rgba(91, 71, 46, 0.12);
-  transform: translate3d(
-    -50%,
-    calc(-50% + var(--timeline-heart-y, 0px)),
-    0
-  );
+  transform: translate3d(-50%, calc(-50% + var(--timeline-heart-y, 0px)), 0);
   transition:
     background 0.3s ease,
     color 0.3s ease,
@@ -1975,10 +1971,7 @@ export default function WeddingInvitation() {
             </ProgramIntro>
             <ProgramTimeline ref={timelineRef}>
               <TimelineTrack aria-hidden="true" />
-              <TimelineProgress
-                ref={timelineProgressRef}
-                aria-hidden="true"
-              />
+              <TimelineProgress ref={timelineProgressRef} aria-hidden="true" />
               <TimelineHeart ref={timelineHeartRef} aria-hidden="true">
                 <Heart />
               </TimelineHeart>
@@ -2073,7 +2066,7 @@ export default function WeddingInvitation() {
             <RSVPButton type="button" onClick={() => setCurrentSection("rsvp")}>
               <Users /> Подтвердить присутствие
             </RSVPButton>
-            <SignOff>С теплом, Бакай и Мээрим</SignOff>
+            <SignOff>Айгул Атай Той элерине</SignOff>
           </ClosingInner>
         </ClosingSection>
       </PageShell>
