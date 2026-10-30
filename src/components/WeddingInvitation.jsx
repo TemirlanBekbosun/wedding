@@ -1120,7 +1120,7 @@ const RSVPButton = styled.button`
 const SignOff = styled.p`
   margin: 45px 0 0;
   color: #d3bd9b;
-  font-family: "Great Vibes", cursive;
+  font-family: "Cormorant Garamond", serif;
   font-size: 43px;
 `;
 
@@ -2066,7 +2066,7 @@ export default function WeddingInvitation() {
             <RSVPButton type="button" onClick={() => setCurrentSection("rsvp")}>
               <Users /> Подтвердить присутствие
             </RSVPButton>
-            <SignOff>Айгул Атай Той элерине</SignOff>
+            <SignOff>Айгул Атай Организаторам торжества</SignOff>
           </ClosingInner>
         </ClosingSection>
       </PageShell>
